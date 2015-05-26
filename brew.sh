@@ -9,7 +9,7 @@ sudo -v
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 # Install homebrew if it's not installed already:
-which brew || ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+if ! which brew > /dev/null; then ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"; fi
 
 # Make sure we’re using the latest Homebrew.
 brew update
@@ -53,19 +53,20 @@ brew install tree
 brew install webkit2png
 brew install nvm
 brew install rbenv
+brew install ruby-build
 
 # Brew Cask
 brew tap caskroom/cask
 brew install brew-cask
-cask install atom
-cask install caffeine
-cask install cheatsheet
-cask install dropbox
-cask install iterm2
-cask install onepassword
-cask install spectacle
-cask install transmission
-cask install vlc
+brew cask install atom
+brew cask install caffeine
+brew cask install cheatsheet
+brew cask install dropbox
+brew cask install iterm2
+brew cask install 1password
+brew cask install spectacle
+brew cask install transmission
+brew cask install vlc
 
 # Remove outdated versions from the cellar.
 brew cleanup

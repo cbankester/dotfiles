@@ -44,5 +44,12 @@ fi;
 # You could just use `-g` instead, but I like being explicit
 complete -W "NSGlobalDomain" defaults;
 
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+if [ -f "$(brew --prefix nvm)/nvm.sh" ]; then
+  export NVM_DIR=~/.nvm
+  source $(brew --prefix nvm)/nvm.sh
+fi
+
 # Add `killall` tab completion for common apps
 complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes SystemUIServer Terminal Twitter" killall;

@@ -4,12 +4,25 @@
 
 ## Installation
 
-### Using Git and the bootstrap script
-
 You can clone the repository wherever you want. (I like to keep it in `~/Projects/dotfiles`, with `~/dotfiles` as a symlink.) The bootstrapper script will pull in the latest version and copy the files to your home folder.
 
+### Quick Start
+
 ```bash
-git clone https://github.com/cbankester/dotfiles.git && cd dotfiles && source bootstrap.sh
+git clone https://github.com/cbankester/dotfiles.git && cd dotfiles # may prompt you for xcode install; make sure you do install xcode
+./brew.sh
+sudo echo /usr/local/bin/bash >> /etc/shells
+chsh -s /usr/local/bin/bash
+source bootstrap.sh
+./.osx
+```
+
+### Install Homebrew formulae
+
+When setting up a new Mac, you may want to install some common [Homebrew](http://brew.sh/) formulae (after installing Homebrew, of course):
+
+```bash
+./brew.sh
 ```
 
 To update, `cd` into your local `dotfiles` repository and then:
@@ -23,16 +36,6 @@ Alternatively, to update while avoiding the confirmation prompt:
 ```bash
 set -- -f; source bootstrap.sh
 ```
-
-### Git-free install
-
-To install these dotfiles without Git:
-
-```bash
-cd; curl -#L https://github.com/cbankester/dotfiles/tarball/master | tar -xzv --strip-components 1 --exclude={README.md,bootstrap.sh,LICENSE-MIT.txt}
-```
-
-To update later on, just run that command again.
 
 ### Specify the `$PATH`
 
@@ -51,8 +54,7 @@ If `~/.extra` exists, it will be sourced along with the other files. You can use
 My `~/.extra` looks something like this:
 
 ```bash
-# Git credentials
-# Not in the repository, to prevent people from accidentally committing under my name
+# Git credentials (see .extra)
 GIT_AUTHOR_NAME="Christian Michael Paul Bankester"
 GIT_COMMITTER_NAME="$GIT_AUTHOR_NAME"
 git config --global user.name "$GIT_AUTHOR_NAME"
@@ -69,14 +71,6 @@ When setting up a new Mac, you may want to set some sensible OS X defaults:
 
 ```bash
 ./.osx
-```
-
-### Install Homebrew formulae
-
-When setting up a new Mac, you may want to install some common [Homebrew](http://brew.sh/) formulae (after installing Homebrew, of course):
-
-```bash
-./brew.sh
 ```
 
 ## Feedback

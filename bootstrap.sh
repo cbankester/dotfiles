@@ -5,6 +5,7 @@ cd "$(dirname "${BASH_SOURCE}")";
 git pull origin master;
 
 function doIt() {
+	if [ ! -f ~/.nvm/nvm-exec ] && which brew > /dev/null && [ -f "$(brew --prefix nvm)/nvm.sh" ]; then cp $(brew --prefix nvm)/nvm-exec ~/.nvm/; fi
 	rsync --exclude ".git/" --exclude ".DS_Store" --exclude "bootstrap.sh" \
 		--exclude "README.md" --exclude "LICENSE-MIT.txt" -avh --no-perms . ~;
 	source ~/.bash_profile;
