@@ -51,6 +51,8 @@ brew install git
 brew install speedtest_cli
 brew install tree
 brew install webkit2png
+brew install nvm
+brew install rbenv
 
 # Brew Cask
 brew tap caskroom/cask
