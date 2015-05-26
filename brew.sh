@@ -8,6 +8,9 @@ sudo -v
 # Keep-alive: update existing `sudo` time stamp until the script has finished.
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
+# Install homebrew if it's not installed already:
+which brew || ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
 # Make sure we’re using the latest Homebrew.
 brew update
 
@@ -48,6 +51,19 @@ brew install git
 brew install speedtest_cli
 brew install tree
 brew install webkit2png
+
+# Brew Cask
+brew tap caskroom/cask
+brew install brew-cask
+cask install atom
+cask install caffeine
+cask install cheatsheet
+cask install dropbox
+cask install iterm2
+cask install onepassword
+cask install spectacle
+cask install transmission
+cask install vlc
 
 # Remove outdated versions from the cellar.
 brew cleanup
