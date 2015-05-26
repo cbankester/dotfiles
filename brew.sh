@@ -62,6 +62,7 @@ brew cask install atom
 brew cask install caffeine
 brew cask install cheatsheet
 brew cask install dropbox
+brew cask install hipchat
 brew cask install iterm2
 brew cask install 1password
 brew cask install spectacle
