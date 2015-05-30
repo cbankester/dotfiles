@@ -64,10 +64,17 @@ brew cask install cheatsheet
 brew cask install dropbox
 brew cask install hipchat
 brew cask install iterm2
-brew cask install 1password
 brew cask install spectacle
 brew cask install transmission
 brew cask install vlc
+brew cask install virtualbox
+
+# Docker stuff
+brew install boot2docker
+brew install docker-compose
+ln -sfv /usr/local/opt/boot2docker/*.plist ~/Library/LaunchAgents
+launchctl load ~/Library/LaunchAgents/homebrew.mxcl.boot2docker.plist
+boot2docker init
 
 # Remove outdated versions from the cellar.
 brew cleanup
